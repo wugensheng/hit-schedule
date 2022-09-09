@@ -1,20 +1,12 @@
 // 封装所有接口请求
 import request from '@/utils/request.js'
-// 获取所有频道
-export const allChannelListAPI = () => {
-  return request({
-    url: '/v1_0/channels',
-    method: 'GET'
-  })
-}
+import qs from 'qs'
 // 登录
-export const login = ({ mobile, code }) => {
+export const login = (data) => {
+  console.log('data:', data)
   return request({
-    url: '/v1_0/authorizations',
     method: 'POST',
-    data: {
-      mobile,
-      code
-    }
+    data: qs.stringify(data),
+    headers: { 'content-type': 'application/x-www-form-urlencoded' }
   })
 }
