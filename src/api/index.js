@@ -3,7 +3,6 @@ import request from '@/utils/request.js'
 import qs from 'qs'
 // 登录
 export const login = (data) => {
-  console.log('data:', data)
   return request({
     method: 'POST',
     data: qs.stringify(data),

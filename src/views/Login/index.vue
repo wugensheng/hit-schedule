@@ -24,7 +24,7 @@ import { Notify } from 'vant'
 export default {
   data () {
     return {
-      studentId: '22S103193',
+      studentId: '',
       semester: 1,
       year: 2022,
       isLoading: false,
@@ -87,7 +87,6 @@ export default {
           })
         })
       })
-      console.log('weekSchedule: ', this.weekSchedule)
     },
     async onSubmit (values) {
       this.isLoading = true
@@ -100,7 +99,6 @@ export default {
         })
         this.isLoading = false
         Notify({ type: 'success', message: '查询成功', duration: 600 })
-        console.log('res: ', res)
         this.schedule = res.data.module
         this.getWeekSchedule()
         this.$router.push({
@@ -108,7 +106,6 @@ export default {
         })
       } catch (error) {
         this.isLoading = false
-        console.log('error: ', error)
         Notify({ type: 'danger', message: '未查询到该学号信息', duration: 1000 })
       }
     }
